@@ -1,0 +1,275 @@
+/* Login Form Animations */
+
+/* Fade in animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes spinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply animations to elements */
+.logo-section {
+  animation: slideInDown 0.8s ease-out;
+}
+
+.emoji-bounce {
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.title-fadeIn {
+  animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.subtitle-fadeIn {
+  animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.card-slideIn {
+  animation: slideInUp 0.8s ease-out 0.3s both;
+}
+
+.header-fadeIn {
+  animation: fadeIn 0.8s ease-out 0.5s both;
+}
+
+.icon-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.form-field {
+  animation: slideInLeft 0.6s ease-out both;
+}
+
+.button-submit {
+  animation: slideInUp 0.6s ease-out 0.5s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-submit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+}
+
+.button-submit:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.button-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+}
+
+.button-icon {
+  animation: slideInRight 0.5s ease-out 0.6s both;
+}
+
+.spinner-loading {
+  animation: spinnerRotate 1s linear infinite;
+}
+
+.input-focus {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-focus:focus {
+  transform: translateY(-2px);
+}
+
+.error-shake {
+  animation: shake 0.4s ease-in-out;
+  color: #ef4444;
+}
+
+.checkbox-hover {
+  transition: all 0.3s ease;
+}
+
+.checkbox-hover:hover {
+  transform: scale(1.1);
+}
+
+.checkbox-hover:checked {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.link-hover {
+  position: relative;
+}
+
+.link-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+.feature-card {
+  animation: slideInUp 0.6s ease-out backwards;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(106, 183, 237, 0);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(26, 200, 237, 0.5);
+  background: rgba(26, 200, 237, 0.1);
+  box-shadow: 0 10px 25px rgba(26, 200, 237, 0.15);
+}
+
+.feature-emoji {
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-emoji {
+  animation: bounce 0.6s ease-in-out;
+}
+
+/* Responsive animations */
+@media (max-width: 768px) {
+  .card-slideIn {
+    animation: scaleIn 0.6s ease-out 0.3s both;
+  }
+
+  .form-field {
+    animation: fadeIn 0.5s ease-out both;
+  }
+
+  .button-submit {
+    animation: fadeIn 0.5s ease-out 0.4s both;
+  }
+}
+
+/* Success animation (optional for future use) */
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-animation {
+  animation: successPulse 0.6s ease-out;
+}
