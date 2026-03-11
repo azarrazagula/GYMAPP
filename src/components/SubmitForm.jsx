@@ -72,6 +72,7 @@ const SubmitForm = () => {
             fitnessGoal: "",
             experience: "",
             message: "",
+            social: "",
           });
           setIsSubmitted(false);
           setIsLoading(false);
